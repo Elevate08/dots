@@ -1,0 +1,11 @@
+#!/bin/sh
+
+temp="/tmp/corona"
+grep "Florida" $temp | sed 's/Florida //'
+
+python3 /home/elevate/Projects/corona-live/main.py >$temp
+
+case $BLOCK_BUTTON in
+    1) pgrep -x dunst >/dev/null && notify-send "Latest Data" "$(cat $temp)" ;;
+esac
+

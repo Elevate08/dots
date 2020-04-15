@@ -1,1 +1,6 @@
-/home/elevate/.local/bin/i3-config-reload
+#!/bin/sh
+
+selection=$(echo -e "Config\\nRestart" | dmenu -i -nb \#000 -sb \#fcb514 -sf \#000 -nf \#fcb514 -p "i3 Refresh")
+
+[ $selection = Restart ] >/dev/null && i3-msg restart
+[ $selection = Config ] >/dev/null && i3-msg reload

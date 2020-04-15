@@ -1,1 +1,18 @@
-/home/elevate/.local/bin/lockscreen
+#!/bin/bash
+DISPLAY=:0
+IMAGE=/tmp/lock.png
+LOGO=/home/elevate/Pictures/pit.png
+RES=$(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/')
+
+# create a darkened, blurred screenshot
+ffmpeg -f x11grab -video_size $RES -y -i $DISPLAY -filter_complex "boxblur=10" -vframes 1 $IMAGE
+
+# add logos
+ffmpeg -i $IMAGE -vf "movie=$LOGO [logo1]; [in][logo1] overlay=(main_w-overlay_w)/1.68:(main_h-overlay_h)/3" -codec:a copy "$IMAGE.tmp.png"
+
+cp "$IMAGE.tmp.png" $IMAGE
+rm -f "$IMAGE.tmp.png"
+
+i3lock --clock --insidevercolor=fcb514ff --insidewrongcolor=000000ff --insidecolor=fcb514ff --ringvercolor=ffffffff --ringwrongcolor=ff0000ff --ringcolor=000000ff --linecolor=ffffffff --keyhlcolor=ffffffff --bshlcolor=000000ff --separatorcolor=ffffffff --verifcolor=ffffffff --wrongcolor=000000ff --indpos="2880:1200:::30" --timecolor=fcb514ff --datecolor=ffffffff --timepos="3650:450" --image=$IMAGE && echo mem > /sys/power/state
+
+rm -f $IMAGE

@@ -1,1 +1,14 @@
-/home/elevate/.local/bin/dmenu-unicode
+#!/bin/sh
+
+xclip -h 2>/dev/null || exit 1
+
+chosen=$(cut -d ';' -f1 ~/.local/share/elevate/emoji | dmenu -i -l 20 | sed "s/ .*//")
+
+[ "$chosen" != "" ] || exit
+
+if [ -n "$1" ]; then
+    xdotool key Shift+Insert
+else
+    echo "$chosen" | tr -d '\n' | xclip -selection clipboard
+    notify-send "'$chosen' copied to clipboard." &
+fi

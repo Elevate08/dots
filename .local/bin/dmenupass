@@ -1,1 +1,3 @@
-/home/elevate/.local/bin/dmenupass
+#!/bin/sh
+
+dmenu -h 19 -p "$1" <&- && echo

@@ -1,1 +1,6 @@
-/home/elevate/.local/bin/sleep-toggle
+#!/bin/sh
+
+selection=$(echo -e "Off\\nOn" | dmenu -i -p "Sleep Service")
+
+[ $selection = Off ] >/dev/null && sudo pkill xautolock
+[ $selection = On ] >/dev/null && [ ! $(pgrep xautolock) ] && xautolock -time 30 -locker "systemctl suspend" -detectsleep &

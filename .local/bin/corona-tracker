@@ -1,1 +1,3 @@
-/home/elevate/.local/bin/corona-tracker
+#!/bin/sh
+
+/usr/bin/python3 /home/elevate/Projects/corona-live/main.py

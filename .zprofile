@@ -1,1 +1,1 @@
-/home/elevate/.zprofile
+source .profile

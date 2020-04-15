@@ -1,1 +1,8 @@
-/home/elevate/.local/bin/power-menu
+#!/bin/sh
+
+selection=$(echo -e "Sleep\\nLogout\\nRestart\\nShutdown" | dmenu -i -p "Power Menu")
+
+[ $selection = Sleep ] >/dev/null && sleep 1 && systemctl suspend
+[ $selection = Logout ] >/dev/null && i3-msg exit
+[ $selection = Shutdown ] >/dev/null && poweroff
+[ $selection = Restart ] >/dev/null && restart
