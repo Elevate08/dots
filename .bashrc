@@ -85,6 +85,5 @@ function stopwatch(){
 
 export GTK_THEME=Breeze-Dark
 export GTK2_RC_FILES=/usr/share/themes/Breeze-Dark/gtk-2.0/gtkrc
-export BW_SESSION="J8zkwFy601K0ApHaOGAl5mpLEVvF9P58C8EJAHxlnRV/p6eiYrEYhoskAB7Bn7cEY91/tM5HHcMjgukA/bjvLQ=="
 
 # [ -n "$VIRTUAL_ENV" ] && source "${VIRTUAL_ENV}/bin/activate"
