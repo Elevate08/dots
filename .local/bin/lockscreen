@@ -1,7 +1,7 @@
 #!/bin/bash
 DISPLAY=:0
 IMAGE=/tmp/lock.png
-LOGO=/home/elevate/Pictures/pit.png
+LOGO=/home/elevate/.cong/logo.png
 RES=$(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/')
 
 # create a darkened, blurred screenshot
