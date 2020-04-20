@@ -1,10 +1,10 @@
-export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.local/bin/statusbar"
 
 export EDITOR="vim"
 export TERMINAL="st"
 export BROWSER="vivaldi-stable"
 export READER="zathura"
-export STATUSBAR="$(cut -d= -f 2 ~/.dmrc | tail -n 1)blocks"
+export STATUSBAR="i3blocks"
 
 export GTK2_RC_FILE="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export LESSHISTFILE="-"

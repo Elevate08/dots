@@ -1,7 +1,7 @@
 !! Colorscheme
-*.alpha: 0.90
+*.alpha: 0.80
 *.alphaUnfocussed: 0.75
-*.font: DejaVu Sans Mono for Powerline:style=Book:pixelsize=12:antialias=true:autohint=true
+*.font: DejaVuSansMono Nerd Font:style=Book:pixelsize=12:antialias=true:autohint=true
 
 ! special
 *.foreground:   #ffffff
@@ -25,6 +25,7 @@
 *.color14:      #8abeb7
 *.color15:      #83868a
 
+/*
 URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book:pixelsize=12
 URxvt.boldFont: xft:DejaVu Sans Mono for Powerline:style=Bold:pixelsize=12
 URxvt.italicFont: xft:DejaVu Sans Mono for Powerline:style=Oblique:pixelsize=12
@@ -59,15 +60,18 @@ URxvt.keysym.M-s: perl:keyboard-select:search
 URxvt.urlLauncher: firefox
 URxvt.underlineURLs: true
 URxvt.urlButton: 1
-
+*/
 
 !! dmenu Colors (xresources patch required)
-dmenu.font: xft:DejaVu Sans Mono for Powerline:style=Book:pixelsize=14
+dmenu.font: xft:DejaVuSansMono Nerd Font:style=Book:pixelsize=14
 dmenu.background: #000000
 dmenu.foreground: #fcb514
 dmenu.selbackground: #fcb514
 dmenu.selforeground: #000000
 
-!! dwm.normbordercolor:    #ffffff
-!! dwm.normbgcolor:        #000000
-!! dwm.normfgcolor:        #fcb514
+dwm.normbordercolor:    #000000
+dwm.normbgcolor:        #000000
+dwm.normfgcolor:        #fcb514
+dwm.selbgcolor:         #fcb514
+dwm.selfgcolor:         #000000
+dwm.selbordercolor:     #fcb514
