@@ -25,42 +25,41 @@
 *.color14:      #8abeb7
 *.color15:      #83868a
 
-/*
-URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book:pixelsize=12
-URxvt.boldFont: xft:DejaVu Sans Mono for Powerline:style=Bold:pixelsize=12
-URxvt.italicFont: xft:DejaVu Sans Mono for Powerline:style=Oblique:pixelsize=12
-URxvt.boldItalicfont: xft:DejaVu Sans Mono for Powerline:style=Bold Oblique:pixelsize=12
-URxvt.letterSpace: 0
-URxvt.lineSpace: 0
-URxvt.geometry: 92x24
-URxvt.internalBorder: 5
-URxvt.cursorBlink: false
-URxvt.cursorUnderline: true
-URxvt.saveline: 2048
-URxvt.scrollBar: false
-URxvt.scrollBar_right: false
-URxvt.urgentOnBell: false
-!! URxvt.depth: 24
-URxvt.iso14755: false
+/* URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book:pixelsize=12 */
+/* URxvt.boldFont: xft:DejaVu Sans Mono for Powerline:style=Bold:pixelsize=12 */
+/* URxvt.italicFont: xft:DejaVu Sans Mono for Powerline:style=Oblique:pixelsize=12 */
+/* URxvt.boldItalicfont: xft:DejaVu Sans Mono for Powerline:style=Bold Oblique:pixelsize=12 */
+/* URxvt.letterSpace: 0 */
+/* URxvt.lineSpace: 0 */
+/* URxvt.geometry: 92x24 */
+/* URxvt.internalBorder: 5 */
+/* URxvt.cursorBlink: false */
+/* URxvt.cursorUnderline: true */
+/* URxvt.saveline: 2048 */
+/* URxvt.scrollBar: false */
+/* URxvt.scrollBar_right: false */
+/* URxvt.urgentOnBell: false */
+/* !! URxvt.depth: 24 */
+/* URxvt.iso14755: false */
 
-!! Common Keybinds for Navigations
-URxvt.keysym.Shift-Up: command:\033]720;1\007
-URxvt.keysym.Shift-Down: command:\033]721;1\007
-URxvt.keysym.Control-Up: \033[1;5A
-URxvt.keysym.Control-Down: \033[1;5B
-URxvt.keysym.Control-Right: \033[1;5C
-URxvt.keysym.Control-Left: \033[1;5D
+/* !! Common Keybinds for Navigations */
+/* URxvt.keysym.Shift-Up: command:\033]720;1\007 */
+/* URxvt.keysym.Shift-Down: command:\033]721;1\007 */
+/* URxvt.keysym.Control-Up: \033[1;5A */
+/* URxvt.keysym.Control-Down: \033[1;5B */
+/* URxvt.keysym.Control-Right: \033[1;5C */
+/* URxvt.keysym.Control-Left: \033[1;5D */
 
-!! Copy Paste & Other Extensions
-URxvt.perl-ext-common: default,keyboard-select
-!! URxvt.copyCommand: clipster -p
-!! URxvt.pasteCommand: clipster -o -c
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-s: perl:keyboard-select:search
-URxvt.urlLauncher: firefox
-URxvt.underlineURLs: true
-URxvt.urlButton: 1
-*/
+/* !! Copy Paste & Other Extensions */
+/* URxvt.perl-ext-common: default,keyboard-select */
+/* !! URxvt.copyCommand: clipster -p */
+/* !! URxvt.pasteCommand: clipster -o -c */
+/* URxvt.keysym.M-Escape: perl:keyboard-select:activate */
+/* URxvt.keysym.M-s: perl:keyboard-select:search */
+/* URxvt.urlLauncher: firefox */
+/* URxvt.underlineURLs: true */
+/* URxvt.urlButton: 1 */
+
 
 !! dmenu Colors (xresources patch required)
 dmenu.font: xft:DejaVuSansMono Nerd Font:style=Book:pixelsize=14

@@ -14,9 +14,9 @@ markup=pango
 #[iplocate]
 #interval=30
 
-[corona-tracker]
-interval=3600
-signal=8
+# [corona-tracker]
+# interval=3600
+# signal=8
 
 [pacpackages]
 interval=once
@@ -26,9 +26,9 @@ signal=8
 #interval=20
 #signal=7
 
-[weather]
-interval=18000
-signal=5
+# [weather]
+# interval=18000
+# signal=5
 
 #[mailbox]
 #interval=180
@@ -52,9 +52,9 @@ command=disk /
 interval=60
 command=disk /home
 
-#[battery]
-#command=battery BAT0
-#interval=5
+[battery]
+command=battery BAT0
+interval=5
 
 [clock]
 label=📅 

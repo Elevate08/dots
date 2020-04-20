@@ -1,6 +1,6 @@
 " Plugin Load:
     " Plugins located at $HOME/.vim/bundle/
-    execute pathogen#infect()
+    " execute pathogen#infect()
 
 " General Settings:
 syntax on
