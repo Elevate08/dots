@@ -34,7 +34,7 @@ exec --no-startup-id xautolock -time 30 -locker "systemctl suspend" -detectsleep
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec amixer sset Master 1%+ && pkill -RTMIN+10 blocks
 bindsym XF86AudioLowerVolume exec amixer sset Master 1%- && pkill -RTMIN+10 blocks
-bindsym XF86AudioMute exec amixer -c 0 set Master toggle && pkill -RTMIN+10 blocks
+bindsym XF86AudioMute exec amixer sset Master toggle && pkill -RTMIN+10 blocks
 
 # Use pactl to adjust volume in PulseAudio.
 # set $refresh_i3status killall -SIGUSR1 i3status

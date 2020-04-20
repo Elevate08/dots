@@ -16,6 +16,7 @@ markup=pango
 
 [corona-tracker]
 interval=3600
+signal=8
 
 [pacpackages]
 interval=once
