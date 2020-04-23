@@ -14,9 +14,9 @@ markup=pango
 #[iplocate]
 #interval=30
 
-# [corona-tracker]
-# interval=3600
-# signal=8
+[corona-tracker]
+interval=3600
+signal=9
 
 [pacpackages]
 interval=once

@@ -263,6 +263,7 @@ bindsym $mod+F2 exec health-first
 bindsym $mod+Shift+F1 exec WINEARCH=win64 WINEPREFIX=~/Games/guild-wars-2 wine ~/Games/guild-wars-2/drive_c/GW2/GW2.exe -image >/dev/null &
 bindsym $mod+Mod1+F1 exec WINEARCH=win64 WINEPREFIX=~/Games/guild-wars-2 wine ~/Games/guild-wars-2/drive_c/GW2/GW2.exe -repair -dx9single -autologin -mapLoadinfo >/dev/null &
 bindsym $mod+Pause exec sleep-toggle
+bindsym $mod+period exec dmenu-unicode
 
 # Startup
 exec --no-startup-id taskset -c 8-15 vivaldi-stable

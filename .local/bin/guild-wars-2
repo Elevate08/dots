@@ -8,7 +8,7 @@ export WINEARCH=win64
 export WINEPREFIX=~/Games/guild-wars-2
 export gw2="wine /home/elevate/Games/guild-wars-2/drive_c/GW2/GW2.exe"
 
-selection=$(echo -e "Launch\\nExit\\nRepair\\nDownload" | dmenu -i -p "Power Menu")
+selection=$(echo -e "Launch\\nExit\\nRepair\\nDownload" | dmenu -i -p "Guild Wars 2")
 
 [ $selection = Launch ] && if ! sudo pkill GW2; then
     taskset -c 0-7 $gw2 -dx9single -autologin -mapLoadinfo
