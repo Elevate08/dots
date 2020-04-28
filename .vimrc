@@ -1,74 +1,89 @@
-" Plugin Load:
-    " Plugins located at $HOME/.vim/bundle/
-    " execute pathogen#infect()
-
-" General Settings:
+" General settings
 syntax on
 filetype plugin indent on
-set fdm=syntax
 
-    " Colors:
-        colorscheme slate
-        set background=dark
-        let g:airline_theme='raven'
+" Colors
+    colorscheme slate
+    set background=dark
+    
+" Environment
+    set number
+    set relativenumber
+    set nocompatible
+    set path+=**
+    set autoread
+    set spelllang=en_us
+    set spell
+    set wildmenu
+    set encoding=UTF-8
+    set backspace=indent,eol,start  " Make sure backspace works
+    set noruler
+    set confirm
+    set autoindent
+    set smartindent
+    set cursorline
+    set ic
+    set fdm=syntax                  " Folding on Syntax
 
-    " Environment:
-        set number
-        set relativenumber
-        set nocompatible
-        set path+=**
-        set wildmenu
-
-    " Tabs:
-        set ts=4
+    " Tabs
+        set tabstop=4
         set expandtab
         set shiftwidth=4
+        set softtabstop=4
 
-    " Highlighting:
+    " Highlighting
         set showmatch
-        set hlsearch
+        set hlsearch is
         highlight ColorColumn ctermbg=red
         nnoremap <C-l> :nohl<CR><C-1>:echo "Search Cleared"<CR>
 
-    " Global Keybindings:
+    " Global Keybindings
         nnoremap H 0
         nnoremap L $
         nnoremap J G
         nnoremap K gg
+        map <C-s> :source ~/.config/nvim/init.vim<CR>
 
-    " Autocomplete:
-        " In Insert Mode:
+    " Status-Line
+        set statusline=             " Initialize Status Line
+        set statusline+=\ %M        " Modified Flag
+        set statusline+=\ %y        " Type of File
+        set statusline+=\ %r        " Read Only Flag [RO]
+        set statusline+=\ %F        " Full Path to file
+        set statusline+=%=          " Right side settings
+        set statusline+=\ %c:%l/%L  " Column, Line, Total Lines
+        set statusline+=\ [%n]      " Buffer Number
+
+    " Autocomplete
+        " In Insert Mode
             " - ^x^n for JUST this file
             " - ^x^f for filenames (works with our path trick!)
             " - ^x^] for tags only
             " - ^n for anything specified by the 'complete' option
 
-    " Snippets:
+    " Snippets
         " If you ever find a need, see example below
-            " nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
+            " nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>
             " type :,html to read in .skeleton.html file
             " go down 3 lines, forward a word, find > and append after
 
-" Tags:
+" Tags
     command! MakeTags !ctags -R .
-    " How To Use:
+    " How To Use
         " ^] - jump to tag under cursor
         " g^] - search for tag
         " ^t - go up a tag
 
-" Python Configurations:
+" Python Configurations
     let python_highlight_all = 1
-    autocmd FileType    python
+    autocmd FileType python
         \       call matchadd('ColorColumn', '\%81v', 80) |
         \       nnoremap <buffer> <F5> :w<cr>:exec '!clear'<cr>:exec '!python3' shellescape(expand('%:p'), 1)<cr>
 
-" Yaml Configurations:
-    au BufRead,BufNewFile *.yaml set filetype=yaml.ansible
-    let g:ansible_unindent_after_newline = 1 |
-    let g:ansible_attribute_highlight = "ob" |
-    let g:ansible_name_highlight = 'd'
+" Yaml Configurations
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-" Netrw Configurations:
+" Netrw Configurations
     " File Explorer
     let g:netrw_banner=0        " disable annoying banner
     let g:netrw_browse_split=4  " open in prior window
@@ -81,10 +96,7 @@ set fdm=syntax
     " v = vertial split
     " t = tab
 
-" Misc:
-    " Last Change Here
-    set backspace=indent,eol,start
-
+" Misc
     " Return to the same line you left off at
     augroup line_return
         au!

@@ -1,4 +1,7 @@
-export PATH="$PATH:$HOME/.local/bin:$HOME/.local/bin/statusbar"
+export CARGO_HOME="$HOME/.config/rust/cargo"
+export RUSTUP_HOME="$HOME/.config/rust/rustup"
+
+export PATH="$PATH:$HOME/.local/bin:$HOME/.local/bin/statusbar:$CARGO_HOME"
 
 export EDITOR="vim"
 export TERMINAL="st"
@@ -20,3 +23,9 @@ export LESS=-R
 
 [ "$(tty)" = "/dev/tty" ] && ! pgrep -x Xorg >/dev/null && exec startx
 
+alias vim=nvim
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Allow aliases to pass through sudo command
+alias sudo='sudo '

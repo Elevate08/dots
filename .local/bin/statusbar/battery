@@ -12,6 +12,8 @@ case $BLOCK_BUTTON in
 ❗: battery very low!" ;;
 esac
 
+[ ! /sys/class/power_supply/BAT? ] && exit 0
+
 # Loop through all attached batteries.
 for battery in /sys/class/power_supply/BAT?
 do
