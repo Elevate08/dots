@@ -105,3 +105,9 @@ SAVEHIST=1000
 # End of lines configured by zsh-newuser-install
 #######################################################################################
 
+
+alias sudo='sudo '
+alias vim=nvim
+
+export PATH="$HOME/.cargo/bin:$PATH"
+

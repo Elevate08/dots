@@ -1,6 +1,8 @@
 #!/bin/sh
 
+xrandr --output DisplayPort-0 --primary --mode 1920x1080 --pos 1920x357 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x357 --rotate normal --output DisplayPort-1 --mode 1920x1080 --pos 3840x0 --rotate left &
 setbg &
+xrdb -merge ~/.xresources &
 xcompmgr &
 dunst &
 xset r rate 300 50 &

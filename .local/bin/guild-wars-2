@@ -6,12 +6,13 @@ export GALLIUM_HUD=".x1475.y10.w80.h80.dfps"
 export GALLIUM_HUD_PERIOD=0.07
 export WINEARCH=win64
 export WINEPREFIX=~/Games/guild-wars-2
+export RADV_PERFTEST=aco
 export gw2="wine /home/elevate/Games/guild-wars-2/drive_c/GW2/GW2.exe"
 
 selection=$(echo -e "Launch\\nExit\\nRepair\\nDownload" | dmenu -i -p "Guild Wars 2")
 
 [ $selection = Launch ] && if ! sudo pkill GW2; then
-    taskset -c 0-7 $gw2 -dx9single -autologin -mapLoadinfo
+    taskset -c 8-15 $gw2 -dx9single -autologin -mapLoadinfo
 fi
 [ $selection = Exit ] && sudo pkill GW2
 [ $selection = Download ] && $gw2 -image && notify-send "Guild Wars 2 Downloaded"

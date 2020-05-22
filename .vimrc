@@ -13,7 +13,7 @@ filetype plugin indent on
     set path+=**
     set autoread
     set spelllang=en_us
-    set spell
+    " set spell
     set wildmenu
     set encoding=UTF-8
     set backspace=indent,eol,start  " Make sure backspace works

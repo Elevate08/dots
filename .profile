@@ -9,6 +9,8 @@ export BROWSER="vivaldi-stable"
 export READER="zathura"
 export STATUSBAR="i3blocks"
 
+# export ERRFILE=/dev/null
+
 export GTK2_RC_FILE="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export LESSHISTFILE="-"
 export WGETRC="$HOME/.config/wget/wgetrc"
@@ -19,13 +21,9 @@ export PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
 export LESS=-R
 
-[ ! -f ~/.config/shortcutrc ] && shortcuts >/dev/null 2>&1
+export GPG_TTY=$(tty)
 
-[ "$(tty)" = "/dev/tty" ] && ! pgrep -x Xorg >/dev/null && exec startx
+# [ ! -f ~/.config/shortcutrc ] && shortcuts >/dev/null 2>&1
 
-alias vim=nvim
+# [ "$(tty)" = "/dev/tty" ] && ! pgrep -x Xorg >/dev/null && exec startx
 
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# Allow aliases to pass through sudo command
-alias sudo='sudo '
