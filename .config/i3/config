@@ -86,9 +86,9 @@ bindsym $mod+Shift+l move right
 # bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-# bindsym $mod+h split h
+bindsym $mod+b split h
 # split in vertical orientation
-# bindsym $mod+v split v
+bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -163,10 +163,10 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Assign Workspaces
-# assign [Class="gw2.exe"] $ws4
-# assign [Class="Vivaldi-stable"] $ws1
-# assign [Class="St"] $ws7
-# assign [Class="discord"] $ws2
+assign [Class="gw2.exe"] $ws4
+assign [Class="Vivaldi-stable"] $ws1
+assign [Class="St"] $ws7
+assign [Class="discord"] $ws2
 # assign [Class="xfreerdp"] $ws6
 
 bindsym $mod+Shift+r exec i3-config-reload
@@ -266,7 +266,8 @@ bindsym $mod+Pause exec sleep-toggle
 bindsym $mod+period exec dmenu-unicode
 
 # Startup
-exec --no-startup-id taskset -c 8-15 vivaldi-stable
-exec --no-startup-id taskset -c 8-15 discord
+exec --no-startup-id xrandr --output DisplayPort-0 --primary --mode 1920x1080 --pos 1920x357 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x357 --rotate normal --output DisplayPort-1 --mode 1920x1080 --pos 3840x0 --rotate left
+# exec --no-startup-id taskset -c 8-15 vivaldi-stable
+# exec --no-startup-id taskset -c 8-15 discord
 # exec --no-startup-id st
 exec --no-startup-id st

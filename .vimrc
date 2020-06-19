@@ -7,23 +7,29 @@ filetype plugin indent on
     set background=dark
     
 " Environment
-    set number
+    set nu
     set relativenumber
-    set nocompatible
     set path+=**
+    set noerrorbells
     set autoread
     set spelllang=en_us
     " set spell
     set wildmenu
     set encoding=UTF-8
     set backspace=indent,eol,start  " Make sure backspace works
+    set nowrap
+    set noswapfile
+    set nobackup
+    set undodir=~/.cache/vim/undo
+    set undofile
+    set incsearch
     set noruler
     set confirm
-    set autoindent
     set smartindent
-    set cursorline
     set ic
     set fdm=syntax                  " Folding on Syntax
+
+    set colorcolumn=80
 
     " Tabs
         set tabstop=4
@@ -34,7 +40,9 @@ filetype plugin indent on
     " Highlighting
         set showmatch
         set hlsearch is
-        highlight ColorColumn ctermbg=red
+        
+        highlight ColorColumn ctermbg=9
+        " highlight ColorColumn ctermbg=red
         nnoremap <C-l> :nohl<CR><C-1>:echo "Search Cleared"<CR>
 
     " Global Keybindings
@@ -74,10 +82,31 @@ filetype plugin indent on
         " g^] - search for tag
         " ^t - go up a tag
 
+" Plugins
+call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
+
+Plug 'jremmen/vim-ripgrep'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-utils/vim-man'
+Plug 'git@github.com:kien/ctrlp.vim.git'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mbbill/undotree'
+
+call plug#end()
+
+if executable('rg')
+    let g:rg_derive_root='true'
+endif
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let mapleader = " "
+
+let g:ctrlp_use_caching = 0
+
 " Python Configurations
     let python_highlight_all = 1
     autocmd FileType python
-        \       call matchadd('ColorColumn', '\%81v', 80) |
+        \       " call matchadd('ColorColumn', '\%81v', 80) |
         \       nnoremap <buffer> <F5> :w<cr>:exec '!clear'<cr>:exec '!python3' shellescape(expand('%:p'), 1)<cr>
 
 " Yaml Configurations
@@ -86,7 +115,8 @@ filetype plugin indent on
 " Netrw Configurations
     " File Explorer
     let g:netrw_banner=0        " disable annoying banner
-    let g:netrw_browse_split=4  " open in prior window
+    let g:netrw_browse_split=2  " open in prior window
+    let g:netrw_winsize = 25
     let g:netrw_altv=1          " open splits to the right
     let g:netrw_liststyle=3     " tree view
     let g:netrw_list_hide=netrw_gitignore#Hide()
@@ -105,3 +135,14 @@ filetype plugin indent on
             \       execute 'normal! g`"zvzz' |
             \ endif
     augroup END
+
+" Remaps
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <leader>ps :Rg<SPACE>
+nnoremap <silent> <leader>+ :vertical resize +5<cr>
+nnoremap <silent> <leader>- :vertical resize -5<cr>
