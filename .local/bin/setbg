@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-center ~/.config/wallpaper ~/Pictures/future_do_today_vertical.png ~/.config/wallpaper
+feh --bg-center ~/.config/wallpaper ~/Pictures/future_do_today_vertical.png ~/.config/wallpaper 
