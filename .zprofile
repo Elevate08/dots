@@ -15,6 +15,7 @@ export BROWSER="vivaldi-stable"
 export READER="zathura"
 
 # ~/ Clean-up:
+export LOCATION=32955
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"

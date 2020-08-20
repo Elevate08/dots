@@ -1,0 +1,10 @@
+#!/bin/sh
+
+mpv --loop-file=inf "https://radar.weather.gov/lite/N0R/MLB_loop.gif" &
+mpv --loop-file=inf "https://radar.weather.gov/lite/N0S/MLB_loop.gif" &
+mpv --loop-file=inf "https://radar.weather.gov/lite/N0V/MLB_loop.gif" &
+mpv --loop-file=inf "https://radar.weather.gov/lite/N0Z/MLB_loop.gif" &
+mpv --loop-file=inf "https://radar.weather.gov/lite/N1P/MLB_loop.gif" &
+mpv --loop-file=inf "https://radar.weather.gov/lite/NCR/MLB_loop.gif" &
+mpv --loop-file=inf "https://radar.weather.gov/lite/NOS/MLB_loop.gif" &
+mpv --loop-file=inf "https://radar.weather.gov/lite/NTP/MLB_loop.gif" &

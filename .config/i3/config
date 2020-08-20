@@ -225,25 +225,8 @@ bar {
     }
 }
 
-# bar {
-# 	status_command i3blocks
-# 	position top
-# 	tray_output primary
-#     
-#     colors {
-#         background #000000
-#         statusline #ffffff
-#         separator #000000
-#         active_workspace #000000 #000000 #fcb514
-#         inactive_workspace #000000 #000000 #ffffff
-#         focused_workspace #ffffff #fcb514 #000000
-#     }
-# }
-
 bindsym --release Print exec interactive-screenshot
 bindsym --release $mod+Print focused-screenshot
-
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 default_border pixel
 default_floating_border pixel
@@ -253,15 +236,13 @@ client.focused_inactive #000000 #000000 #ffffff #000000 #000000
 client.unfocused #000000 #000000 #ffffff #000000 #000000
 client.urgent #ff0000 #000000 #ffffff #90000000 #90000000
 client.placeholder #000000 #000000 #ffffff #c4c4c4 #000000
-gaps outer 2
-gaps inner 5
+gaps outer 1
+gaps inner 4
 smart_gaps on
 
 # Application Shortcuts
 bindsym $mod+F1 exec guild-wars-2 >/dev/null
 bindsym $mod+F2 exec health-first
-bindsym $mod+Shift+F1 exec WINEARCH=win64 WINEPREFIX=~/Games/guild-wars-2 wine ~/Games/guild-wars-2/drive_c/GW2/GW2.exe -image >/dev/null &
-bindsym $mod+Mod1+F1 exec WINEARCH=win64 WINEPREFIX=~/Games/guild-wars-2 wine ~/Games/guild-wars-2/drive_c/GW2/GW2.exe -repair -dx9single -autologin -mapLoadinfo >/dev/null &
 bindsym $mod+Pause exec sleep-toggle
 bindsym $mod+period exec dmenu-unicode
 

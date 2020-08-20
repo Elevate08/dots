@@ -5,4 +5,7 @@
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/Xresources
 . ~/.xprofile
 # ssh-agent i3
-ssh-agent dwm
+
+while :; do
+    ssh-agent dwm
+done

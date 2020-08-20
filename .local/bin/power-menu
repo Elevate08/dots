@@ -3,6 +3,6 @@
 selection=$(echo -e "Sleep\\nLogout\\nReboot\\nShutdown" | dmenu -i -p "Power Menu")
 
 [ $selection = Sleep ] >/dev/null && sleep 1 && systemctl suspend
-[ $selection = Logout ] >/dev/null && i3-msg exit
+[ $selection = Logout ] >/dev/null && killall Xorg
 [ $selection = Shutdown ] >/dev/null && poweroff
 [ $selection = Reboot ] >/dev/null && reboot

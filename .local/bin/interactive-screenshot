@@ -1,8 +1,9 @@
 #!/bin/bash
+sleep .1
 scrot --line 'style=solid,width=2' '%F_%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/' --select
 if [ $? -eq 0 ]
 then
-    kdialog --passivepopup 'Screenshot saved to ~/Pictures/screenshots/'
+    notify-send --passivepopup 'Screenshot saved to ~/Pictures/screenshots/'
 else
-    kdialog --passivepopup 'No Screenshot Taken'
+    notify-send --passivepopup 'No Screenshot Taken'
 fi
