@@ -12,18 +12,23 @@ case $BLOCK_BUTTON in
 ❗: battery very low!" ;;
 esac
 
-[ ! -f /sys/class/power_supply/BAT? ] && exit 0
+IFS=$'\n'
+all_battery=$(acpi -b)
 
-# Loop through all attached batteries.
-for battery in /sys/class/power_supply/BAT?
+for battery in $all_battery
 do
-    # Get its remaining capacity and charge status.
-    capacity=$(cat "$battery"/capacity) || break
-    status=$(sed "s/Discharging/🔋/;s/Not charging/🛑/;s/Charging/🔌/;s/Unknown/♻️/;s/Full/⚡/" "$battery"/status)
+    battery_num=$(echo $battery | cut -d ":" -f 1)
+    status=$(echo $battery | cut -d ":" -f 2 | cut -d "," -f 1 | sed -e "s/^\s*//")
+    capacity=$(echo $battery | cut -d ":" -f 2 | cut -d "," -f 2 | sed -e "s/^\s*//")
+    time=$(echo $battery | cut -d "," -f 3 | cut -d " " -f 1-2 )
+    num_capacity=$(echo $capacity | sed "s/%//")
 
-    # If it is discharging and 25% or less, we will add a ❗ as a warning.
-     [ "$capacity" -le 25 ] && [ "$status" = "🔋" ] && warn="❗"
+    status=$(echo $status | sed "s/Discharging/🔋/;s/Not charging/🛑/;s/Charging/🔌/;s/Unknown/⚡/;s/Full/⚡/")
 
-    printf "%s%s%s%%\n" "$status" "$warn" "$capacity"
-    unset warn
+    [ "$num_capacity" -le 25 ] && [ "$status" = "🔋" ] && warn="❗"
+
+    [ ! "$status" == "⚡" ] && printf "%s%s%s%s%%" "$status" "$warn" "$capacity" "$time"
+
+    [ "$status" == "⚡" ] && printf "%s%s%s" "$status" "$warn" "$capacity "
+
 done
