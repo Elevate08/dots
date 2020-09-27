@@ -1,6 +1,6 @@
 #!/bin/sh
 
-case $BLOCK_BUTTON in
+case $BUTTON in
     1) setsid "$TERMINAL" -e alsamixer & ;;
     2) amixer sset Master toggle ;;
     4) amixer sset Master 5%+ >/dev/null 2>/dev/null ;;
