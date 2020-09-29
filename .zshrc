@@ -183,8 +183,6 @@ bindkey '^R' history-incremental-search-backward
 alias sudo='sudo '
 alias vim=nvim
 
-export PATH="$HOME/.cargo/bin:$PATH"
-
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
     startx
 fi
