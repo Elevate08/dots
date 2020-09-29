@@ -4,31 +4,36 @@
 # to charge status (🔌 for plugged up, 🔋 for discharging on battery, etc.).
 
 case $BUTTON in
-    3) pgrep -x dunst >/dev/null && notify-send "🔋 Battery module" "🔋: discharging
-🛑: not charging
-♻: stagnant charge
-🔌: charging
-⚡: charged
-❗: battery very low!" ;;
+    1) pgrep -x dunst >/dev/null && notify-send "🔋 Battery module" "$(acpi -b | sort -r)";;
+    3) pgrep -x dunst >/dev/null && notify-send "🔋 Battery module"
+        "🔋: discharging
+        🛑: not charging
+        ♻: stagnant charge
+        🔌: charging
+        ⚡: charged
+        ❗: battery very low!";;
 esac
 
 IFS=$'\n'
-all_battery=$(acpi -b)
+bat=$(acpi -b | grep -v Unknown)
+warn="❗"
 
-for battery in $all_battery
-do
-    battery_num=$(echo $battery | cut -d ":" -f 1)
-    status=$(echo $battery | cut -d ":" -f 2 | cut -d "," -f 1 | sed -e "s/^\s*//")
-    capacity=$(echo $battery | cut -d ":" -f 2 | cut -d "," -f 2 | sed -e "s/^\s*//")
-    time=$(echo $battery | cut -d "," -f 3 | cut -d " " -f 1-2 )
-    num_capacity=$(echo $capacity | sed "s/%//")
+bat_num=$(echo $bat | cut -d ":" -f 1)
+status=$(echo $bat | cut -d ":" -f 2 | cut -d "," -f 1 | sed -e "s/^\s*//")
+capacity=$(echo $bat | cut -d ":" -f 2 | cut -d "," -f 2 | sed -e "s/^\s*//")
+time=$(echo $bat | cut -d "," -f 3 | cut -d " " -f 1-2 )
+num_capacity=$(echo $capacity | sed "s/%//")
 
-    status=$(echo $status | sed "s/Discharging/🔋/;s/Not charging/🛑/;s/Charging/🔌/;s/Unknown/⚡/;s/Full/⚡/")
+status=$(echo $status | sed "s/Discharging/🔋/;s/Not charging/🛑/;s/Charging/🔌/;s/Unknown/♻️/;s/Full/⚡/")
 
-    [ "$num_capacity" -le 25 ] && [ "$status" = "🔋" ] && warn="❗"
-
-    [ ! "$status" == "⚡" ] && printf "%s%s%s%s%%" "$status" "$warn" "$capacity" "$time"
-
-    [ "$status" == "⚡" ] && printf "%s%s%s" "$status" "$warn" "$capacity "
-
-done
+if [ "$num_capacity" -ge 10 ]
+then
+    if [ "$num_capacity" -le 25 ]
+    then
+        printf "%s%s%s%s%%" "$warn" "$status" "$capacity" "$time"
+    else
+        printf "%s%s%s%%" "$status" "$capacity" "$time"
+    fi
+else
+    printf "%s%s%%" "$bat_num" "☠️" 
+fi
