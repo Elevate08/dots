@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Prints backlight status
+
+# case $BUTTON in
+#     3) xbacklight && notify-send ""
+# esac
+
+value=$(xbacklight | sed "s/\\..*//")
+
+[ "$value" ] && printf "%s%s%s" "☀" "$value" "%'"
