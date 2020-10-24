@@ -8,4 +8,4 @@
 
 value=$(xbacklight | sed "s/\\..*//")
 
-[ "$value" ] && printf "%s%s%s" "☀" "$value" "%'"
+[ "$value" ] && printf "%s%s%s" "☀" "$value" "%' "

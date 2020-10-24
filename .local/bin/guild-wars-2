@@ -4,6 +4,7 @@ export WINEDEBUG=-all
 export LOGFILE=/dev/null
 export GALLIUM_HUD=".x1475.y10.w80.h80.dfps"
 export GALLIUM_HUD_PERIOD=0.07
+# export MANGOHUD=1
 export WINEARCH=win64
 export WINEPREFIX=~/Games/guild-wars-2
 export RADV_PERFTEST=aco

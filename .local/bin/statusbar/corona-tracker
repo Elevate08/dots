@@ -3,9 +3,8 @@
 temp="/tmp/corona"
 python3 /home/elevate/Projects/corona-live/main.py >$temp
 
-grep "Florida" $temp | sed 's/Florida //'
-
 case $BUTTON in
     1) pgrep -x dunst >/dev/null && notify-send -a "corona-tracker" -c "stats" "Latest Data" "$(cat $temp)" ;;
 esac
 
+printf '%s%s' "$(/usr/bin/grep 'Florida' $temp | sed 's/Florida //')" " "

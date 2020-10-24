@@ -30,13 +30,13 @@ if [ -n "$num_capacity" ] && [ "$num_capacity" -ge 10 ]
 then
     if [ "$num_capacity" -le 25 ]
     then
-        printf "%s%s%s%s%%" "$warn" "$status" "$capacity" "$time"
+        printf "%s%s%s%s%%" "$warn" "$status" "$capacity" "$time "
     else
-        printf "%s%s%s%%" "$status" "$capacity" "$time"
+        printf "%s%s%s%%" "$status" "$capacity" "$time "
     fi
 else
     if [ -n "$num_capacity" ]
     then 
-        printf "%s%s%%" "$bat_num" "☠️" 
+        printf "%s%s%%" "$bat_num" "☠️ " 
     fi
 fi
