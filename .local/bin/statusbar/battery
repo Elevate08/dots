@@ -15,7 +15,7 @@ case $BUTTON in
 esac
 
 IFS=$'\n'
-bat=$(acpi -b | grep -v Unknown)
+bat=$(acpi -b | grep -v Unknown | grep -v Full)
 warn="❗"
 
 bat_num=$(echo $bat | cut -d ":" -f 1)
@@ -26,22 +26,12 @@ num_capacity=$(echo $capacity | sed "s/%//")
 
 status=$(echo $status | sed "s/Discharging/🔋/;s/Not charging/🛑/;s/Charging/🔌/;s/Unknown/♻️/;s/Full/⚡/")
 
-# if [ -z "$num_capacity" ]
-# then
-#     printf "⚡"
-# elif [ "$num_capacity" -ge 10 ]
-
 if [ -n "$num_capacity" ] && [ "$num_capacity" -ge 10 ]
 then
     if [ "$num_capacity" -le 25 ]
     then
-        printf "%s%s%s%s%%" "$warn" "$status" "$capacity" "$time "
+        printf "%s%s%s%s" "$warn" "$status" "$capacity" "$time "
     else
-        printf "%s%s%s%%" "$status" "$capacity" "$time "
-    fi
-else
-    if [ -n "$num_capacity" ]
-    then 
-        printf "%s%s%%" "$bat_num" "☠️ " 
+        printf "%s%s%s" "$status" "$capacity" "$time "
     fi
 fi
