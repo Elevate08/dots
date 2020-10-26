@@ -7,4 +7,10 @@ case $BUTTON in
 - % is of single core." ;;
 esac
 
-sensors | awk '/Core 0/ {print "🌡" $3}'
+if sensors | grep 'Core 0' >/dev/null
+then
+    sensors | awk '/Core 0/ {print "🌡" $3 " " }'
+elif sensors | grep Tdie >/dev/null
+then
+    sensors | awk '/Tdie/ {print "🌡" $2 " "}'
+fi
