@@ -118,5 +118,3 @@ ex=🎯:\
 *.part=💔:\
 *.torrent=🔽:\
 "
-
-# [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ] && shortcuts >/dev/null 2>&1 &
