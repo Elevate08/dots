@@ -26,7 +26,7 @@ num_capacity=$(echo $capacity | sed "s/%//")
 
 status=$(echo $status | sed "s/Discharging/🔋/;s/Not charging/🛑/;s/Charging/🔌/;s/Unknown/♻️/;s/Full/⚡/")
 
-if [ -n "$num_capacity" ] && [ "$num_capacity" -ge 10 ]
+if [ -n "$num_capacity" ] && [ "$num_capacity" -ge 1 ]
 then
     if [ "$num_capacity" -le 25 ]
     then
