@@ -25,4 +25,4 @@ case $BUTTON in
 - Middle click to show upgradable packages" ;;
 esac
 
-pacman -Qu | grep -v "\[ignored\]" | wc -l | sed "s/^/📦/;s/^📦0$//g"
+pacman -Qu | grep -v "\[ignored\]" | wc -l | sed "s/^/📦/;s/^📦0$//g;s/$/ /"

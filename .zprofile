@@ -10,10 +10,14 @@ export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
 # Adds platformio to path
 export PATH="$PATH:$HOME/.platformio/penv/bin/"
 
+# GPG Settings
+export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent
+
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="vivaldi-stable"
+export BROWSER="brave"
 export READER="zathura"
 
 # ~/ Clean-up:
