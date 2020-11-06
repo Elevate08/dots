@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cd /home/elevate/.builds/dwmblocks
+current=$(git show-ref | head -n 1 | cut -d " " -f 1)
+git pull
+new=$(git show-ref | head -n 1 | cut -d " " -f 1)
+if [ "$current" != "$new" ]
+then
+    make clean
+    make
+    sudo make install
+    if [ $? -eq 0 ]
+    then
+        notify-send "dwmblocks updated"
+    fi
+fi
