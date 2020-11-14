@@ -25,4 +25,9 @@ case $BUTTON in
 - Middle click to show upgradable packages" ;;
 esac
 
-pacman -Qu | grep -v "\[ignored\]" | wc -l | sed "s/^/📦/;s/^📦0$//g;s/$/ /"
+packages=$(pacman -Qu | grep -v "\[ignored\]" | wc -l)
+
+if [ "$packages" -gt 0 ]
+then
+    printf '%s%s%s' "📦" "$packages" " "
+fi
