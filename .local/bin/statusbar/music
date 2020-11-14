@@ -1,0 +1,8 @@
+#!/bin/sh
+
+case $BUTTON in
+    1) pgrep -x duns >/dev/null && notify-send "$(ncmpcpp --current-song %t)";;
+    3) pgrep -x dunst >/dev/null && notify-send "$(ncmpcpp --current-song "%l %a:%b - %t")"
+esac
+
+mpc | tr "\n" " " | awk '{print "🎧 " $1 " " $2 " " $3 ": " $6 " " $7 " "}'
