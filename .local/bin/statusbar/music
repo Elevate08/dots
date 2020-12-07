@@ -5,4 +5,4 @@ case $BUTTON in
     3) pgrep -x dunst >/dev/null && notify-send "$(ncmpcpp --current-song "%l %a:%b - %t")"
 esac
 
-mpc | tr "\n" " " | awk '{print "🎧 " $1 " " $2 " " $3 ": " $6 " " $7 " "}'
+mpc | tr "\n" " " | awk '{print "🎧 " $1 " " $2 " " $3 " "}'

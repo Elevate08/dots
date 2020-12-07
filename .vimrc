@@ -92,12 +92,13 @@ filetype plugin indent on
 call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
+Plug 'mbbill/undotree'
 " Plug 'git@github.com:kien/ctrlp.vim.git'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'mbbill/undotree'
 
 call plug#end()
 
@@ -117,7 +118,7 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd FileType python source $XDG_CONFIG_HOME/nvim/python.vim
 
 " Yaml Configurations
-    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Netrw Configurations
     " File Explorer
@@ -153,3 +154,10 @@ nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <leader>ps :Rg<SPACE>
 nnoremap <silent> <leader>+ :vertical resize +5<cr>
 nnoremap <silent> <leader>- :vertical resize -5<cr>
+
+" Neovim LSP Custom Settings
+lua  require('lua_config')
+let g:completion_enable_fuzzy_match = 1
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+set completeopt=menuone,noinsert,noselect
