@@ -1,5 +1,5 @@
 !! Colorscheme
-*.alpha: 0.80
+*.alpha: 0.95
 *.alphaUnfocussed: 0.75
 *.font: monospace:size=10:antialias=true:autohint=true
 
