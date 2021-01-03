@@ -1,7 +1,8 @@
 #!/bin/sh
 
-selection=$(echo -e "Sleep\\nLogout\\nReboot\\nShutdown" | dmenu -i -p "Power Menu")
+selection=$(echo -e "Lock\\nShutdown\\nSleep\\nLogout\\nReboot" | dmenu -i -p "Power Menu")
 
+[ $selection = Lock ] >/dev/null && xautolock -locknow
 [ $selection = Sleep ] >/dev/null && sleep 1 && systemctl suspend
 [ $selection = Logout ] >/dev/null && killall Xorg
 [ $selection = Shutdown ] >/dev/null && poweroff
