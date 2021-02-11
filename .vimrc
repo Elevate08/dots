@@ -7,6 +7,7 @@ filetype plugin indent on
     set background=dark
     
 " Environment
+    set mouse=a
     set nu
     set relativenumber
     set path+=**
@@ -49,7 +50,7 @@ filetype plugin indent on
         
         highlight ColorColumn ctermbg=9
         " highlight ColorColumn ctermbg=red
-        nnoremap <C-l> :nohl<CR><C-1>:echo "Search Cleared"<CR>
+        nnoremap <C-l> :nohl<CR>:echo "Search Cleared"<CR>
 
     " Global Keybindings
         nnoremap H 0
@@ -57,6 +58,7 @@ filetype plugin indent on
         nnoremap J G
         nnoremap K gg
         map <C-s> :source ~/.config/nvim/init.vim<CR>
+        tnoremap <Esc> <C-\><C-n>
 
     " Status-Line
         set statusline=             " Initialize Status Line
