@@ -1,9 +1,10 @@
 #!/bin/bash
 sleep .1
-scrot --line 'style=solid,width=2' '%F_%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/' --select
+screenshot=$(date +%Y%m%d_%H%M%S.png)
+scrot --line 'style=solid,width=2' --select '$screenshot' -e 'xclip -selection clipboard -t image/png < $f'
 if [ $? -eq 0 ]
 then
-    notify-send --passivepopup 'Screenshot saved to ~/Pictures/screenshots/'
+    notify-send 'Screenshot Captured' "📎 $screenshot"
 else
-    notify-send --passivepopup 'No Screenshot Taken'
+    notify-send 'No Screenshot Taken'
 fi

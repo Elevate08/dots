@@ -50,7 +50,7 @@ filetype plugin indent on
         
         highlight ColorColumn ctermbg=9
         " highlight ColorColumn ctermbg=red
-        nnoremap <C-l> :nohl<CR>:echo "Search Cleared"<CR>
+        nnoremap <C-l> :nohl<CR><C-l>:echo "Search Cleared"<CR>
 
     " Global Keybindings
         nnoremap H 0
@@ -114,13 +114,13 @@ let mapleader = " "
 let g:ctrlp_use_caching = 0
 
 " COC Syntax highlighting for JSON Config File
-autocmd FileType json syntax match Comment +\/\/.\+$+
+" autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " Python Configurations
 autocmd FileType python source $XDG_CONFIG_HOME/nvim/python.vim
 
 " Yaml Configurations
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+" autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Netrw Configurations
     " File Explorer

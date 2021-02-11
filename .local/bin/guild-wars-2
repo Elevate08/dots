@@ -16,7 +16,7 @@ selection=$(echo -e "Launch\\nExit\\nRepair\\nDownload\\nDebug\\nNon-Gallium" | 
     taskset -c 8-15 $gw2 -dx9single -autologin -mapLoadinfo
 fi
 [ $selection = Exit ] && sudo pkill GW2
-[ $selection = Download ] && $gw2 -image && notify-send "Guild Wars 2 Downloaded"
+[ $selection = Download ] && $gw2 -image
 [ $selection = Repair ] && $gw2 -repair -dx9single -autologin -mapLoadinfo && notify-send "Guild Wars 2 Repaired"
 [ $selection = Debug ] && WINEDLLOVERRIDES=d3d9.dll=n,b WINEDEBUG=fixme-all,+debugstr TRACE_FILE=~/Games/guild-wars-2/drive_c/GW2/d3d9.trace NINE_DEBUG=all $gw2 -dx9single -autologin -mapLoadinfo
 [ $selection = Non-Gallium ] && ~/Games/gw2-standalone/GW2/play.sh
