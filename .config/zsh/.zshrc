@@ -19,6 +19,8 @@ setopt HIST_FIND_NO_DUPS
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc"
 # [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc"
 
+# # append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -53,8 +55,11 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Ctrl+R Reverse Search
 bindkey '^R' history-incremental-search-backward
 
-alias vim=nvim
+alias vim=/usr/bin/nvim
+alias vi=/usr/bin/nvim
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
     startx
 fi
+
+. $HOME/.asdf/asdf.sh
