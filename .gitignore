@@ -37,3 +37,4 @@ health-first
 .local/bin/register-python-argcomplete
 .local/bin/virtualenv
 .local/bin/virtualenv-clone
+.config/nvim/plugged
